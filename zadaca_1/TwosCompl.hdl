@@ -1,0 +1,41 @@
+CHIP TwosCompl{
+	IN in[16];
+	OUT out[16];
+
+	PARTS:
+
+	Not(in = in[0], out = flip0);
+	Not(in = in[1], out = flip1);
+	Not(in = in[2], out = flip2);
+	Not(in = in[3], out = flip3);
+	Not(in = in[4], out = flip4);
+	Not(in = in[5], out = flip5);
+	Not(in = in[6], out = flip6);
+	Not(in = in[7], out = flip7);
+	Not(in = in[8], out = flip8);
+	Not(in = in[9], out = flip9);
+	Not(in = in[10], out = flip10);
+	Not(in = in[11], out = flip11);
+	Not(in = in[12], out = flip12);
+	Not(in = in[13], out = flip13);
+	Not(in = in[14], out = flip14);
+	Not(in = in[15], out = flip15);
+
+	HalfAdder(a = flip0, b = true, sum = out[0], carry = c1);
+	FullAdder(a = c1, b = flip1, c = false, sum = out[1], carry = c2);
+	FullAdder(a = c2, b = flip2, c = false, sum = out[2], carry = c3);
+	FullAdder(a = c3, b = flip3, c = false, sum = out[3], carry = c4);
+	FullAdder(a = c4, b = flip4, c = false, sum = out[4], carry = c5);
+	FullAdder(a = c5, b = flip5, c = false, sum = out[5], carry = c6);
+	FullAdder(a = c6, b = flip6, c = false, sum = out[6], carry = c7);
+	FullAdder(a = c7, b = flip7, c = false, sum = out[7], carry = c8);
+	FullAdder(a = c8, b = flip8, c = false, sum = out[8], carry = c9);
+	FullAdder(a = c9, b = flip9, c = false, sum = out[9], carry = c10);
+	FullAdder(a = c10, b = flip10, c = false, sum = out[10], carry = c11);
+	FullAdder(a = c11, b = flip11, c = false, sum = out[11], carry = c12);
+	FullAdder(a = c12, b = flip12, c = false, sum = out[12], carry = c13);
+	FullAdder(a = c13, b = flip13, c = false, sum = out[13], carry = c14);
+	FullAdder(a = c14, b = flip14, c = false, sum = out[14], carry = c15);
+	FullAdder(a = c15, b = flip15, c = false, sum = out[15], carry = c16);
+
+}
