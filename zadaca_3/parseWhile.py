@@ -6,21 +6,27 @@ def _parse_while(self):
 
 
 def _p_while(self, line, p, o):
+    l = line[1:].split(")")
     if line[0] != "$":
         return line
     elif line.split("(")[0] not in self._m:
         self._flag = False
         self._line = o
         self._errm = "Macro non-existent"
+        return ""
+    elif l[1] != "" or len(l) > 2:
+        self._flag = False
+        self._line = o
+        self._errm = "Code after macro"
+        return ""
     else:
         if line.split("(")[0] == self._m[3]:
             l = line.split("(")
             n = ""
             for i in l[1]:
-                if i.isdigit():
+                if i.isdigit() or i.isalpha():
                     n = n + i
-                if i.isalpha():
-                    n = n + i
+
             self._wc += 1
             self._wl.append(self._wc)
             
