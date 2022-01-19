@@ -1,0 +1,27 @@
+sp
+call zad3.Main 0
+ep
+
+function Main 0
+    push constant 2500 // pocetak arraya na adresi 2500
+    pop pointer 1
+    push constant 4    // array = [4,9,12,33,45,69,420] 
+    pop that 0
+    push constant 9
+    pop that 1
+    push constant 12
+    pop that 2
+    push constant 33
+    pop that 3
+    push constant 45
+    pop that 4
+    push constant 69
+    pop that 5
+    push constant 420
+    pop that 6
+    push constant 2500 // push pointer 1 nije radio iz nekog razloga
+    push constant 7
+    push constant 69
+    call bs.BinarySearch 3  // 69 = array[5]
+    pop static 0
+    return

@@ -1,0 +1,50 @@
+function BinarySearch 3
+    push constant 0 // lo = 0
+    pop local 0
+    push argument 1  // hi = length - 1
+    push constant 1
+    sub
+    pop local 1 
+    label LOOP
+        push argument 0 // that = that
+        pop pointer 1
+        push local 0 // if lo > hi return -1
+        push local 1
+        gt           
+        if-goto NONE
+        push local 0 // mid = (hi+lo)/2
+        push local 1
+        add
+        push constant 2
+        call div_mod.Div 2
+        pop local 2
+        push argument 0 // that = that + mid
+        push local 2
+        add
+        pop pointer 1
+        push that 0 // if A[mid] = x return mid
+        push argument 2
+        eq
+        if-goto END
+        push that 0 // if A[mid] > x hi = mid - 1 else lo = mid + 1
+        push argument 2
+        gt
+        if-goto GREATER
+        push local 2
+        push constant 1
+        add
+        pop local 0
+        goto LOOP
+        label GREATER
+        push local 2
+        push constant 1
+        sub
+        pop local 1
+        goto LOOP
+    label NONE
+    push constant 1
+    neg
+    pop local 2
+    label END
+    push local 2
+    return
