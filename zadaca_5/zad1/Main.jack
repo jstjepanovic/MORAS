@@ -5,7 +5,7 @@ class Main
         var Array A;
         var int n, i;
         
-        let n = Keyboard.readInt("Unesite duljnu polja: ");
+        let n = Keyboard.readInt("Unesite duljinu polja: ");
         let A = Array.new(n);
         
         let i = 0;
